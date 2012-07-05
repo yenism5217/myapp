@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @post.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @post.content %>
+</p>
+
+<p>
+<% if @post.micropost %>
+  <strong>User msg: <%= @post.micropost.content %></strong>
+	<% loc = @post.parse(@post.micropost.content) %>
+	<% @post.micropost.update_attributes(location: loc) %>
+  <strong>Updated msg: <%= @post.micropost.location %></strong>
+<% end %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
