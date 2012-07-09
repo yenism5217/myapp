@@ -10,6 +10,7 @@ if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
     raise "RVM ruby lib is currently unavailable."
   end
 end
- 
+
 ENV['BUNDLE_GEMFILE'] = File.expand_path('../Gemfile', File.dirname(__FILE__))
+ENV['JAVA_HOME'] = '/usr/lib/jvm/java-6-openjdk'
 require 'bundler/setup'
